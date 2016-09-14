@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Enter Text To Convert To Phonetic</h1>
+<p>You can enter things like IP or MAC</p>
+<p>IP:  192.168.1.1</p>
+<p>MAC: 00:1C:B3:09:85:15</p>
+<input style="width:400px;" type="text" id="input">
+
+<p id="output"></p>
+
+<script>
+document.getElementById("input").addEventListener("keyup", myFunction);
+
+var data = {
+  "A": "Alpha",
+  "B": "Bravo",
+  "C": "Charlie",
+  "D": "Delta",
+  "E": "Echo",
+  "F": "Foxtrot",
+  "G": "Golf",
+  "H": "Hotel",
+  "I": "India",
+  "J": "Juliet",
+  "K": "Kilo",
+  "L": "Lima",
+  "M": "Mike",
+  "N": "November",
+  "O": "Oscar",
+  "P": "Papa",
+  "Q": "Quebec",
+  "R": "Romeo",
+  "S": "Sierra",
+  "T": "Tango",
+  "U": "Uniform",
+  "V": "Victor",
+  "W": "Whiskey",
+  "X": "X-ray",
+  "Y": "Yankee",
+  "Z": "Zulu",
+  "a": "Alpha",
+  "b": "Bravo",
+  "c": "Charlie",
+  "d": "Delta",
+  "e": "Echo",
+  "f": "Foxtrot",
+  "g": "Golf",
+  "h": "Hotel",
+  "i": "India",
+  "j": "Juliet",
+  "k": "Kilo",
+  "l": "Lima",
+  "m": "Mike",
+  "n": "November",
+  "o": "Oscar",
+  "p": "Papa",
+  "q": "Quebec",
+  "r": "Romeo",
+  "s": "Sierra",
+  "t": "Tango",
+  "u": "Uniform",
+  "v": "Victor",
+  "w": "Whiskey",
+  "x": "X-ray",
+  "y": "Yankee",
+  "z": "Zulu",
+  "0": "Zero",
+  "1": "One",
+  "2": "Two",
+  "3": "Three",
+  "4": "Four",
+  "5": "Five",
+  "6": "Six",
+  "7": "Seven",
+  "8": "Eight",
+  "9": "Nine",
+  ".": "Period",
+  ":": "Colon"
+}
+
+function letter(input){
+	var output = data[input]
+    return output
+}
+
+function myFunction() {
+  var test = document.getElementById("input").value;
+	var text = "";
+	var reg = /[A-Za-z0-9]*/;
+  var sym = /[\.\:]*/;
+	
+	for (i = 0; i < test.length; i++) {
+		if(test[i].match(reg) != "" ){
+			var word = letter(test[i]);
+			text += word + "<br>";
+		}else if(test[i].match(sym) != ""){
+			var word = letter(test[i]);
+			text += "<br>" + word + "<br>";    
+    }else{
+			text += "<br>";
+		}
+	}
+    document.getElementById("output").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
+
