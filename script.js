@@ -68,23 +68,20 @@ var data = {
 }
 
 function letter(input){
-	var output = data[input]
-    return output
+    return data[input]
 }
 
 function myFunction() {
   var test = document.getElementById("input").value;
 	var text = "";
 	var reg = /[A-Za-z0-9]*/;
-  var sym = /[\.\:]*/;
+    var sym = /[\.\:]*/;
 	
 	for (i = 0; i < test.length; i++) {
 		if(test[i].match(reg) != "" ){
-			var word = letter(test[i]);
-			text += word + "<br>";
+			text += letter(test[i]) + "<br>";
 		}else if(test[i].match(sym) != ""){
-			var word = letter(test[i]);
-			text += "<br>" + word + "<br>";    
+			text += "<br>" + letter(test[i]) + "<br>";    
     }else{
 			text += "<br>";
 		}
